@@ -1,0 +1,38 @@
+<header>
+    <img class="small-google-logo" src="small-google-logo.png" alt="google logo">
+
+    <form action="#" method="post">
+      <!--can't make this work!> <img src="microphone.png" class="microphone"> -->
+      <input type="search" name="search" value="build this webpage">
+      <button class="blue-button">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </form>
+
+    <div class="right-head">
+      <img class="options-image" src="options-image.png" alt="options">
+      <div class="sign-in-button">
+        <a href="#">Sign in</a>
+      </div>
+    </div>
+  </header>
+
+<div id='header'>
+	<%= image_tag("small-google-logo.png", class: "small-google-logo") %>
+</div>
+
+<div id='results'>
+	<% @test.results.each do |result| %>
+	<%= result.title %><br>
+	<a href="<%= result.link %>"><%= result.linkShow %></a><br>
+	<%= result.description %><br>
+	<% end %>
+</div>
+
+<% @serp['items'].each do |item| %>
+<p>
+	<%= item.title %><br>
+	<a href='<%= item.link %>'><%= item.displayLink %></a><br>
+	<%= item.snippet %>
+</p>
+<% end %>

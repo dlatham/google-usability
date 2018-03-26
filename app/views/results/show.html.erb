@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @result.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @result.description %>
+</p>
+
+<p>
+  <strong>Linkshow:</strong>
+  <%= @result.linkShow %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @result.link %>
+</p>
+
+<p>
+  <strong>Ad:</strong>
+  <%= @result.ad %>
+</p>
+
+<p>
+  <strong>Test:</strong>
+  <%= @result.test %>
+</p>
+
+<%= link_to 'Edit', edit_result_path(@result) %> |
+<%= link_to 'Back', results_path %>
