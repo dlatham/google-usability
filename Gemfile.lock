@@ -59,6 +59,8 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
+    font-awesome-rails (4.7.0.3)
+      railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     google_custom_search_api (2.0.0)
@@ -165,6 +167,7 @@ DEPENDENCIES
   byebug
   coffee-rails
   dotenv-rails
+  font-awesome-rails
   google_custom_search_api
   jbuilder
   jquery-rails

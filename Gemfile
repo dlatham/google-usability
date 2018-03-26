@@ -25,6 +25,7 @@ gem 'jbuilder'
 gem 'sdoc', group: :doc
 
 gem "google_custom_search_api"
+gem "font-awesome-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,36 +1,83 @@
 <header>
     <%= image_tag("small-google-logo.png", class: "small-google-logo") %>
 
-    <form action="#" method="post">
+    <form action="/live/<%= params[:id] %>/results" method="get">
       <!--can't make this work!> <img src="microphone.png" class="microphone"> -->
-      <input type="search" name="search" value="build this webpage">
+      <input type="search" name="q" value="<%= params[:q] %>">
       <button class="blue-button">
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
     </form>
 
     <div class="right-head">
-      <img class="options-image" src="options-image.png" alt="options">
+      <%= image_tag("options-image.png", class: "options-image") %>
       <div class="sign-in-button">
         <a href="#">Sign in</a>
       </div>
     </div>
   </header>
 
+<!-- NAVBAR -->
+    <section class="navbar clearfix">
+      <nav>
+        <ul>
+          <li><a class="first-navbar" href="#">All</a></li>
+          <li><a href="#">Videos</a></li>
+          <li><a href="#">Shopping</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Maps</a></li>
+          <li><a href="#">More <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>
+          <li><a href="#">Search tools</a></li>
+        </ul>
+      </nav>
+      <div class="settings">
+        <a href="#" class="settings-button"><i class="fa fa-cog" aria-hidden="true"></i></a>
+      </div>
+    </section>
 
-<div id='results'>
+<!--RESULTS-->
+  <section class="column">
+    <section class="results-wrapper">
+      <p class="number-speed-results">About 2,860,000 results (0.24 seconds) </p>
+
+<!-- MANUAL TEST RESULTS -->
+
 	<% @test.results.each do |result| %>
-	<%= result.title %><br>
-	<a href="<%= result.link %>"><%= result.linkShow %></a><br>
-	<%= result.description %><br>
+	<div class="result">
+		<h3 class="result-title">
+			<a href="<%= result.link %>"><%= result.title %></a><br>
+		</h3>
+		<div>
+			<cite class="meta-web-address"><%= result.linkShow %></cite>
+			<div class="action-menu-web-address">
+          		<a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+        	</div>
+			<div class="meta-description">
+				<span class="date-result">26 Jul 2013 - </span><%= result.description %>
+			</div>
+		</div>
+	</div>
 	<% end %>
-</div>
 
 
-<% @serp['items'].each do |item| %>
-<p>
-	<%= item['title'] %><br>
-	<a href='<%= item['link'] %>'><%= item['displayLink'] %></a><br>
-	<%= item['snippet'] %>
-</p>
-<% end %>
+<!-- AUTO CSE RESULTS -->
+
+	<% @serp['items'].each do |item| %>
+	<div class="result">
+		<h3 class="result-title">
+			<a href="<%= item['link'] %>"><%= item['title'] %></a>
+		</h3>
+		<div>
+			<cite class="meta-web-address"><%= item['displayLink'] %></cite>
+			<div class="action-menu-web-address">
+          		<a href="<%= item['link'] %>"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+        	</div>
+        	<div class="meta-description">
+				<span class="date-result">26 Jul 2013 - </span><%= item['snippet'] %>
+			</div>
+        </div>
+	</div>
+	<% end %>
+
+</section>
+</section>
