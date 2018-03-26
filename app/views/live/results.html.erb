@@ -1,5 +1,5 @@
 <header>
-    <img class="small-google-logo" src="small-google-logo.png" alt="google logo">
+    <%= image_tag("small-google-logo.png", class: "small-google-logo") %>
 
     <form action="#" method="post">
       <!--can't make this work!> <img src="microphone.png" class="microphone"> -->
@@ -17,9 +17,6 @@
     </div>
   </header>
 
-<div id='header'>
-	<%= image_tag("small-google-logo.png", class: "small-google-logo") %>
-</div>
 
 <div id='results'>
 	<% @test.results.each do |result| %>
@@ -29,10 +26,11 @@
 	<% end %>
 </div>
 
+
 <% @serp['items'].each do |item| %>
 <p>
-	<%= item.title %><br>
-	<a href='<%= item.link %>'><%= item.displayLink %></a><br>
-	<%= item.snippet %>
+	<%= item['title'] %><br>
+	<a href='<%= item['link'] %>'><%= item['displayLink'] %></a><br>
+	<%= item['snippet'] %>
 </p>
 <% end %>
