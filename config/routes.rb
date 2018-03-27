@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :tests do
-    resources :results
+    resources :results do
+      put :sort, on: :collection
+    end
   end
 
   get 'live/:id' => 'live#show'

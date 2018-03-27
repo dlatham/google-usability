@@ -1,5 +1,58 @@
+<script type="text/javascript">
+
+var ready, set_positions;
+
+set_positions = function(){
+    // loop through and give each task a data-pos
+    // attribute that holds its position in the DOM
+    $('.result').each(function(i){
+        $(this).attr("data-pos",i+1);
+    });
+}
+
+
+ready = function(){
+    // call set_positions function
+    set_positions();
+    $('.sortable').railsSortable({
+      update: function( event, ui ) {
+        //alert("Something changed.");
+        // array to store new order
+        updated_order = []
+        // set the updated positions
+        set_positions();
+        // populate the updated_order array with the new task positions
+        $('.result').each(function(i){
+            updated_order.push({ id: $(this).data("id"), position: i+1 });
+        });
+        // send the updated order via ajax
+        $.ajax({
+            type: "PUT",
+            url: '/tests/<%= params[:id] %>/results/sort',
+            data: { order: updated_order }
+        });
+      }
+    });
+}
+
+/*
+ready = function(){
+  // call set_positions function
+  set_positions();
+  $('.sortable').railsSortable();
+}*/
+
+$(document).ready(ready);
+/**
+ * if using turbolinks
+ */
+$(document).on('page:load', ready);
+</script>
+
 <p id="notice"><%= notice %></p>
 
+
+<!--TEST DETAILS-->
 <p>
   <strong>Name:</strong>
   <%= @test.name %>
@@ -15,13 +68,31 @@
   <%= @test.live %>
 </p>
 
-<p>
-	<strong>Results:</strong>
-	<% @test.results.each do |result| %>
-	<%= result.title %><br>
-	<%= result.description %><br>
-	<%= result.linkShow %><br>
-	<% end %>
+
+<!--RESULTS-->
+<section class="column">
+    <section class="results-wrapper">
+      <p class="number-speed-results">About 2,860,000 results (0.24 seconds) </p>
+
+<div class="sortable"><!-- Sorting starts here -->
+  <% @test.results.each_with_sortable_id do |result, sortable_id| %>
+  <div class="result" id="<%= sortable_id %>" data-id="<%= result.id %>">
+    <h3 class="result-title">
+      <a href="<%= result.link %>"><%= result.title %></a><br>
+    </h3>
+    <div>
+      <cite class="meta-web-address"><%= result.linkShow %></cite>
+      <div class="action-menu-web-address">
+              <a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          </div>
+      <div class="meta-description">
+        <span class="date-result">26 Jul 2013 - </span><%= result.description %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
 
 <p>
 	<strong>Add a Google result:</strong>
@@ -51,6 +122,9 @@
     <%= form.submit %>
   </p>
 <% end %>
+
+</section>
+</section>
 
 
 <%= link_to 'Edit', edit_test_path(@test) %> |
