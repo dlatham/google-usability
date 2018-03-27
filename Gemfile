@@ -15,8 +15,6 @@ gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -26,6 +24,9 @@ gem 'sdoc', group: :doc
 
 gem "google_custom_search_api"
 gem "font-awesome-rails"
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails_sortable'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

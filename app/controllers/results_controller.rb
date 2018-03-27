@@ -62,6 +62,14 @@ class ResultsController < ApplicationController
     end
   end
 
+  #AJAX route when sortable is updated
+  def sort
+    params[:order].each do |key,value|
+      Result.find(value[:id]).update_attribute(:sort,value[:position])
+    end
+    render :nothing => true
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_result
