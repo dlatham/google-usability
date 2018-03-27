@@ -1,11 +1,37 @@
-<div id='header'>
-	<%= image_tag("small-google-logo.png", class: "small-google-logo") %>
+<div class="show-head">
+	<div class="right-head">
+      <%= image_tag("options-image.png", class: "options-image") %>
+      <div class="sign-in-button">
+        <a href="#">Sign in</a>
+      </div>
+    </div>
 </div>
 
-<div id='results'>
-	<% @test.results.each do |result| %>
-	<%= result.title %><br>
-	<a href="<%= result.link %>"><%= result.linkShow %></a><br>
-	<%= result.description %><br>
-	<% end %>
+<!--MAIN LOGO AND SEARCH-->
+<div class="show-search">
+	<%= image_tag("googlelogo.png", class: "show-image") %>
+	<form action="./results" method="GET">
+		<div class="search-box">
+			<input type="search" name="q">
+			<%= image_tag("google-mic.png") %>
+		</div>
+		<div class="search-buttons">
+			<input type="submit" name="submit" value="Google Search">
+			<input type="button" name="lucky" value="I'm Feeling Lucky">
+		</div>
+	</form>
 </div>
+
+<!--FOOTER-->
+<div class="search-footer">
+	<ul style="float: left;">
+		<li>Advertising</li>
+		<li>Business</li>
+	</ul>
+	<ul style="float: right;">
+		<li>Privacy</li>
+		<li>Terms</li>
+		<li>Settings</li>
+	</ul>
+</div>
+
