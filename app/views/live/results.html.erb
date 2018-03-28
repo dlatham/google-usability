@@ -48,6 +48,9 @@
 			<a href="<%= result.link %>"><%= result.title %></a><br>
 		</h3>
 		<div>
+			<% if result.ad %>
+			<span class="ad">Ad</span>
+			<% end %>
 			<cite class="meta-web-address"><%= result.linkShow %></cite>
 			<div class="action-menu-web-address">
           		<a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a>

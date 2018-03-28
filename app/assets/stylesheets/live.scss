@@ -379,16 +379,17 @@ margin: 17px 0 24px 0;
 }
 
 .ad {
-  background-color: #59946b;
-  color: white;
+  background-color: white;
+  color: #59946b;
   border: 1px solid #59946b;
-  border-radius: 2px;
-  font-size: 11px;
+  border-radius: 3px;
+  font-size: 10px;
   float:left;
   width: 17px;
   margin: 2px 3px 0 0;
   text-align: center;
   vertical-align: middle;
+  display: inline-block;
 }
 
 .action-menu-web-address {
