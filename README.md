@@ -13,3 +13,8 @@ In UX, we often want to user test our experiences through replication of real wo
 GOOGLE_API_KEY = YOUR_GOOGLE_API_KEY
 GOOGLE_SEARCH_CX = YOUR_CSE_CX_CODE
 ```
+
+## References:
+http://josephndungu.com/tutorials/ajax-sortable-lists-rails-4
+https://github.com/B-raw/google-serp
+https://github.com/wiseleyb/google_custom_search_api
