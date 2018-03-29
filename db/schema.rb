@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20180327182439) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "results", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "linkShow"
     t.string "link"
     t.boolean "ad"
-    t.integer "test_id"
+    t.bigint "test_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sort"
@@ -33,4 +36,5 @@ ActiveRecord::Schema.define(version: 20180327182439) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "results", "tests"
 end

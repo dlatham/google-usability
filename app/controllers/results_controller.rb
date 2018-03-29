@@ -65,9 +65,10 @@ class ResultsController < ApplicationController
   #AJAX route when sortable is updated
   def sort
     params[:order].each do |key,value|
+      #byebug
       Result.find(value[:id]).update_attribute(:sort,value[:position])
     end
-    render :nothing => true
+    #render :nothing => true
   end
 
   private

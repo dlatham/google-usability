@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 #gem 'rails', '4.2.3'
 gem 'rails', '5.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -22,6 +22,7 @@ gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', group: :doc
 
+gem 'pg'
 gem "google_custom_search_api"
 gem "font-awesome-rails"
 gem 'jquery-rails'
