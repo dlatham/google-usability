@@ -2,6 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Medium.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Light.ttf');
+  font-weight: lighter;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Thin.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+
 .tests-header {
 	background-color: #324047;
 	width: 100%;
