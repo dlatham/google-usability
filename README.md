@@ -6,12 +6,12 @@ In UX, we often want to user test our experiences through replication of real wo
 
 * Create a Custom Search Engine to power the organic results at https://cse.google.com/
 
-* Create a `secrets.rb` file and place it in your `/config/initializers` folder with the following code:
+* Create a `.env` file and place it in your `root` folder with the following code. The dotenv gem is used in development and test modes but an environmetal variable will need to be set in production in order to function properly:
 
 ```ruby
 #Variables for your CSE implementation
-GOOGLE_API_KEY = YOUR_GOOGLE_API_KEY
-GOOGLE_SEARCH_CX = YOUR_CSE_CX_CODE
+KEY = YOUR_GOOGLE_API_KEY
+CX = YOUR_CSE_CX_CODE
 ```
 
 ## References:
