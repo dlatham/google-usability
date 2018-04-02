@@ -1,3 +1,107 @@
 // Place all the styles related to the tests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tests-header {
+	background-color: #324047;
+	width: 100%;
+	padding: 10px 10px 10px 20px;
+	margin-right: 20px;
+	display: block;
+	float: left;
+}
+
+.tests-header h1 {
+	font-size: 2.4375rem;
+    font-weight: 100;
+    line-height: 1.2;
+    font-family: Aktiv;
+    color: white;
+    float: left;
+    display: block;
+}
+
+.tests-header i {
+	float: right;
+	display: block;
+	color: white;
+	font-size: 2.4375rem;
+	line-height: 1.2;
+	-webkit-margin-before: 0.67em;
+}
+
+.tests {
+	display: block;
+	float: left;
+	width: 100%;
+	padding: 20px 20px 20px 20px;
+	background-color: #f8f8f8;
+	height: 100vh;
+}
+
+.tests table {
+	border-top: 4px solid #5ac1e7;
+	width: 100%;
+	background-color: white;
+
+}
+
+.tests table tr th {
+	text-align: left;
+	padding: 20px 5px 20px 20px;
+	font-weight: lighter;
+	font-family: Aktiv;
+	font-size: 32px;
+}
+
+.tests table tr td {
+	text-align: left;
+	padding: 10px 20px 10px 20px;
+	font-family: Aktiv;
+	font-weight: normal;
+	font-size: 16px;
+	border-top: 1px solid #f8f8f8;
+}
+
+.tests table tr td a {
+	color: #5ac1e7;
+	text-decoration: none;
+}
+
+.tests table tr td a:hover {
+	color: #5ac1e7;
+	text-decoration: underline;
+}
+
+.tests table tr td i {
+	float: right;
+	display: block;
+	color: #999;
+	font-size: 20px;
+	padding: 5px 5px 5px 5px;
+
+}
+
+.test-live {
+	background-color: #8ed982;
+	color: white;
+	border-radius: 10px;
+	font-weight: bolder;
+	font-size: 10px;
+	padding: 2px 10px 2px 10px;
+	width: 100px;
+	display: block;
+	text-align: center;
+}
+
+.test-paused {
+	background-color: #e5e5e5;
+	color: white;
+	border-radius: 10px;
+	font-weight: bolder;
+	font-size: 10px;
+	padding: 2px 10px 2px 10px;
+	width: 100px;
+	display: block;
+	text-align: center;
+}

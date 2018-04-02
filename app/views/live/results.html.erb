@@ -1,6 +1,6 @@
 <% title params[:q] + " - Google Search" %>
 <header>
-    <%= image_tag("small-google-logo.png", class: "small-google-logo") %>
+    <a href='/live/<%= params[:id] %>/'><%= image_tag("small-google-logo.png", class: "small-google-logo") %>
 
     <form action="/live/<%= params[:id] %>/results" method="get">
       <!--can't make this work!> <img src="microphone.png" class="microphone"> -->

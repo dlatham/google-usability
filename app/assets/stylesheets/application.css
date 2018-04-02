@@ -14,3 +14,35 @@
  *= require_self
  *= require font-awesome
  */
+
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Medium.ttf');
+  font-weight: bolder;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Light.ttf');
+  font-weight: lighter;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Aktiv';
+  src:url('AktivGrotesk-Thin.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
