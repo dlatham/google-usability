@@ -70,6 +70,11 @@ $(document).on('page:load', ready);
   <%= @test.live %>
 </p>
 
+<p>
+  <strong>Live test URL:</strong>
+  <a href='/live/<%= params[:id] %>/' target='_blank'>http://usertest.link/live/<%= params[:id] %></a>
+</p>
+
 
 <!--RESULTS-->
 <section class="column">
