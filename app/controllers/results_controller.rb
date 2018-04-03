@@ -57,7 +57,8 @@ class ResultsController < ApplicationController
   def destroy
     @result.destroy
     respond_to do |format|
-      format.html { redirect_to results_url, notice: 'Result was successfully destroyed.' }
+      # byebug
+      format.html { redirect_to "/tests/#{params[:test_id]}", notice: 'Result was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

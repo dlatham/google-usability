@@ -88,6 +88,7 @@ $(document).on('page:load', ready);
     <h3 class="result-title">
       <a href="<%= result.link %>"><%= result.title %></a><br>
     </h3>
+    <%= link_to "<i class='fa fa-trash'></i>".html_safe, test_result_path(params[:id], result.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     <div>
       <cite class="meta-web-address"><%= result.linkShow %></cite>
       <div class="action-menu-web-address">
