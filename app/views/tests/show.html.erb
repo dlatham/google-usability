@@ -55,58 +55,76 @@ $(document).on('page:load', ready);
 
 
 <!--TEST DETAILS-->
-<p>
-  <strong>Name:</strong>
-  <%= @test.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @test.description %>
-</p>
-
-<p>
-  <strong>Live:</strong>
-  <%= @test.live %>
-</p>
-
-<p>
-  <strong>Live test URL:</strong>
-  <a href='/live/<%= params[:id] %>/' target='_blank'>http://usertest.link/live/<%= params[:id] %></a>
-</p>
-
-
-<!--RESULTS-->
-<section class="column">
-    <section class="results-wrapper">
-      <p class="number-speed-results">About 2,860,000 results (0.24 seconds) </p>
-
-<div class="sortable"><!-- Sorting starts here -->
-  <% @test.results.each_with_sortable_id do |result, sortable_id| %>
-  <div class="result" id="<%= sortable_id %>" data-id="<%= result.id %>">
-    <div class="draggable"><i class="fa fa-bars"></i></div>
-    <h3 class="result-title">
-      <a href="<%= result.link %>"><%= result.title %></a><br>
-    </h3>
-    <%= link_to "<i class='fa fa-trash'></i>".html_safe, test_result_path(params[:id], result.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-    <div>
-      <cite class="meta-web-address"><%= result.linkShow %></cite>
-      <div class="action-menu-web-address">
-              <a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-          </div>
-      <div class="meta-description">
-        <span class="date-result">26 Jul 2013 - </span><%= result.description %>
-      </div>
-    </div>
-  </div>
-  <% end %>
+<div class="tests-header">
+  <h1><%= @test.name %></h1>
+  <a href="<%= edit_test_path %>"><i class="fa fa-edit"></i></a>
 </div>
 
+<div class="tests">
+  <%= link_to "< Back to Tests", tests_path %>
+  <table>
+      <tr>
+        <td><%= @test.description %></td>
+        <td>
+          <span class="live-toggle">
+            <ul>
+              <li>
+                <% if @test.live %>
+                  <span class="test-live">
+                    Live <%= link_to "<i class='fa fa-toggle-on'></i>".html_safe, test_path(test: {:id => params[:id], :live => false}), method: :put, data: { confirm: 'Are you sure?' } %>
+                  </span>
+                  <% else %>
+                  <span class="test-paused">
+                    Not Live <%= link_to "<i class='fa fa-toggle-off'></i>".html_safe, test_path(test: {:id => params[:id], :live => true}), method: :put, data: { confirm: 'Are you sure?' } %>
+                  </span>
+                  <% end %>
+              </li>
+              <% if @test.live %>
+              <li>
+                <a href='/live/<%= params[:id] %>/' target='_blank'>http://usertest.link/live/<%= params[:id] %></a>
+              </li>
+              <% end %>
+            </span>
+          </td>
+      </tr>
 
-<p>
-	<strong>Add a Google result:</strong>
+      <tr>
+        <td>
+<!-- RESULTS -->
+          <section class="column">
+              <section class="results-wrapper">
+                <p class="number-speed-results">About 2,860,000 results (0.24 seconds) </p>
+
+                <div class="sortable"><!-- Sorting starts here -->
+                  <% @test.results.each_with_sortable_id do |result, sortable_id| %>
+                  <div class="result" id="<%= sortable_id %>" data-id="<%= result.id %>">
+                    <div class="draggable"><i class="fa fa-bars"></i></div>
+                    <h3 class="result-title">
+                      <a href="<%= result.link %>"><%= result.title %></a><br>
+                    </h3>
+                    <%= link_to "<i class='fa fa-trash'></i>".html_safe, test_result_path(params[:id], result.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <div>
+                      <cite class="meta-web-address"><%= result.linkShow %></cite>
+                      <div class="action-menu-web-address">
+                        <a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                      </div>
+                      <div class="meta-description">
+                        <span class="date-result">26 Jul 2013 - </span><%= result.description %>
+                      </div>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
+            </section>
+          </section>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+  <strong>Add a Google result:</strong>
 </p>
-	<%= form_with(model: [ @test, @test.results.build ], local: true) do |form| %>
+  <%= form_with(model: [ @test, @test.results.build ], local: true) do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -131,10 +149,10 @@ $(document).on('page:load', ready);
     <%= form.submit %>
   </p>
 <% end %>
+</td>
 
-</section>
-</section>
+      </tr>
+  </table>
 
-
-<%= link_to 'Edit', edit_test_path(@test) %> |
-<%= link_to 'Back', tests_path %>
+  
+</div>
